@@ -11,9 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/main.css?v=2">
 </head>
 <body>
+    <a class="skip-link" href="#about">Skip to content</a>
     <div class="page-shell">
         <header class="site-header">
             <div class="brand-lockup">
@@ -30,7 +31,11 @@
                 <a href="#skills">Skills</a>
                 <a href="#contact">Contact</a>
             </nav>
-            <a class="nav-cta" href="mailto:guneetsingh.honey@gmail.com">Let's talk</a>
+            <a class="nav-cta" href="mailto:guneetsingh.honey@gmail.com">Get in touch</a>
+            <p class="scroll-section-label" id="scrollSectionLabel" aria-live="polite">Intro</p>
+            <div class="scroll-progress" aria-hidden="true">
+                <span class="scroll-progress-bar" id="scrollProgressBar"></span>
+            </div>
         </header>
 
         <main>
@@ -44,15 +49,16 @@
                         <p class="hero-mobile-role">Senior Software Engineer &middot; Morgan Stanley</p>
                     </div>
                     <p class="eyebrow">Greater Montreal Metropolitan Area</p>
-                    <h1 class="hero-title">Modernizing enterprise software with Java depth and AI-driven systems thinking.</h1>
+                    <h1 class="hero-title">Modernizing enterprise software with Java and AI-driven systems.</h1>
                     <p class="hero-intro">
                         I build software that does not just work. It evolves. My focus spans Java platforms,
                         intelligent system integration, clean architecture, and resilient delivery across high-scale environments.
                     </p>
                     <div class="hero-actions">
-                        <a class="button button-primary" href="#contact">Contact me</a>
+                        <a class="button button-primary" href="#contact" data-contact-jump>Contact</a>
                         <a class="button button-secondary" href="https://www.linkedin.com/in/guneet-singh-2381b878/" target="_blank" rel="noreferrer">LinkedIn</a>
                     </div>
+                    <p class="hero-dynamic-note" id="heroDynamicNote" aria-live="polite"></p>
                     <dl class="hero-metrics">
                         <div>
                             <dt>Java-first</dt>
@@ -152,80 +158,110 @@
                 </div>
                 <div class="timeline">
                     <article class="timeline-card featured" data-reveal>
-                        <div class="timeline-meta">
-                            <span>Morgan Stanley</span>
-                            <span>Jan 2024 - Present</span>
+                        <div class="timeline-tab" role="button" tabindex="0" aria-expanded="false" aria-controls="timeline-details-1">
+                            <div class="timeline-meta">
+                                <span>Morgan Stanley</span>
+                                <span>Jan 2024 - Present</span>
+                            </div>
+                            <h3>Senior Software Engineer</h3>
+                            <p class="timeline-location">Montreal, QC</p>
+                            <span class="timeline-tab-hint" aria-hidden="true">Show details</span>
                         </div>
-                        <h3>Senior Software Engineer</h3>
-                        <p class="timeline-location">Montreal, QC</p>
-                        <ul>
-                            <li>Developed microservices with Spring Boot and applied Clean Architecture to separate business logic from infrastructure concerns.</li>
-                            <li>Integrated AI-driven refactoring and automated code analysis into engineering workflows to improve legacy systems and speed up defect isolation.</li>
-                            <li>Partnered with security teams to remediate vulnerabilities and managed critical production hotfixes with a strong focus on resilience.</li>
-                            <li>Engineered large-scale relational database solutions across Oracle and Sybase, including schema design and stored procedures for high-volume transactions.</li>
-                            <li>Served as Release Owner across CI/CD pipelines and coordinated with multiple squads for dependable production delivery.</li>
-                        </ul>
+                        <div class="timeline-details" id="timeline-details-1" hidden>
+                            <ul>
+                                <li>Developed microservices with Spring Boot and applied Clean Architecture to separate business logic from infrastructure concerns.</li>
+                                <li>Integrated AI-driven refactoring and automated code analysis into engineering workflows to improve legacy systems and speed up defect isolation.</li>
+                                <li>Partnered with security teams to remediate vulnerabilities and managed critical production hotfixes with a strong focus on resilience.</li>
+                                <li>Engineered large-scale relational database solutions across Oracle and Sybase, including schema design and stored procedures for high-volume transactions.</li>
+                                <li>Served as Release Owner across CI/CD pipelines and coordinated with multiple squads for dependable production delivery.</li>
+                            </ul>
+                        </div>
                     </article>
 
                     <article class="timeline-card" data-reveal>
-                        <div class="timeline-meta">
-                            <span>Equifax</span>
-                            <span>Jun 2023 - Aug 2024</span>
+                        <div class="timeline-tab" role="button" tabindex="0" aria-expanded="false" aria-controls="timeline-details-2">
+                            <div class="timeline-meta">
+                                <span>Equifax</span>
+                                <span>Jun 2023 - Aug 2024</span>
+                            </div>
+                            <h3>Senior Software Developer</h3>
+                            <p class="timeline-location">Montreal, Quebec, Canada</p>
+                            <span class="timeline-tab-hint" aria-hidden="true">Show details</span>
                         </div>
-                        <h3>Senior Software Developer</h3>
-                        <p class="timeline-location">Montreal, Quebec, Canada</p>
-                        <ul>
-                            <li>Provided backend API consultation using Java frameworks.</li>
-                            <li>Wrote security-conscious code aligned with policy requirements and web security expectations.</li>
-                            <li>Contributed technical expertise across direct-to-consumer and B2B business areas.</li>
-                        </ul>
+                        <div class="timeline-details" id="timeline-details-2" hidden>
+                            <ul>
+                                <li>Provided backend API consultation using Java frameworks.</li>
+                                <li>Wrote security-conscious code aligned with policy requirements and web security expectations.</li>
+                                <li>Contributed technical expertise across direct-to-consumer and B2B business areas.</li>
+                            </ul>
+                        </div>
                     </article>
 
                     <article class="timeline-card" data-reveal data-mobile-extra>
-                        <div class="timeline-meta">
-                            <span>Morgan Stanley</span>
-                            <span>Nov 2021 - May 2023</span>
+                        <div class="timeline-tab" role="button" tabindex="0" aria-expanded="false" aria-controls="timeline-details-3">
+                            <div class="timeline-meta">
+                                <span>Morgan Stanley</span>
+                                <span>Nov 2021 - May 2023</span>
+                            </div>
+                            <h3>Senior Java Developer</h3>
+                            <p class="timeline-location">Montreal, Quebec, Canada</p>
+                            <span class="timeline-tab-hint" aria-hidden="true">Show details</span>
                         </div>
-                        <h3>Senior Java Developer</h3>
-                        <p class="timeline-location">Montreal, Quebec, Canada</p>
-                        <ul>
-                            <li>Built financial systems and microservices using Spring-based Java web frameworks.</li>
-                            <li>Delivered backend services in enterprise environments with high reliability expectations.</li>
-                        </ul>
+                        <div class="timeline-details" id="timeline-details-3" hidden>
+                            <ul>
+                                <li>Built financial systems and microservices using Spring-based Java web frameworks.</li>
+                                <li>Delivered backend services in enterprise environments with high reliability expectations.</li>
+                            </ul>
+                        </div>
                     </article>
 
                     <article class="timeline-card" data-reveal data-mobile-extra>
-                        <div class="timeline-meta">
-                            <span>Manulife</span>
-                            <span>May 2018 - Nov 2020</span>
+                        <div class="timeline-tab" role="button" tabindex="0" aria-expanded="false" aria-controls="timeline-details-4">
+                            <div class="timeline-meta">
+                                <span>Manulife</span>
+                                <span>May 2018 - Nov 2020</span>
+                            </div>
+                            <h3>Software Developer</h3>
+                            <p class="timeline-location">Montreal, Canada Area</p>
+                            <span class="timeline-tab-hint" aria-hidden="true">Show details</span>
                         </div>
-                        <h3>Software Developer</h3>
-                        <p class="timeline-location">Montreal, Canada Area</p>
-                        <ul>
-                            <li>Implemented clean architecture patterns and built microservices using Spring Boot and Kafka.</li>
-                            <li>Worked closely with internal clients and squads on requirements, solutions, reporting, and support.</li>
-                            <li>Handled security remediation, production hotfixes, DevOps pipelines, and release management for production delivery.</li>
-                        </ul>
+                        <div class="timeline-details" id="timeline-details-4" hidden>
+                            <ul>
+                                <li>Implemented clean architecture patterns and built microservices using Spring Boot and Kafka.</li>
+                                <li>Worked closely with internal clients and squads on requirements, solutions, reporting, and support.</li>
+                                <li>Handled security remediation, production hotfixes, DevOps pipelines, and release management for production delivery.</li>
+                            </ul>
+                        </div>
                     </article>
 
                     <article class="timeline-card compact" data-reveal data-mobile-extra>
-                        <div class="timeline-meta">
-                            <span>Centennial College</span>
-                            <span>Dec 2016 - Jun 2018</span>
+                        <div class="timeline-tab" role="button" tabindex="0" aria-expanded="false" aria-controls="timeline-details-5">
+                            <div class="timeline-meta">
+                                <span>Centennial College</span>
+                                <span>Dec 2016 - Jun 2018</span>
+                            </div>
+                            <h3>Graduate Student</h3>
+                            <p class="timeline-location">Toronto, Canada Area</p>
+                            <span class="timeline-tab-hint" aria-hidden="true">Show details</span>
                         </div>
-                        <h3>Graduate Student</h3>
-                        <p class="timeline-location">Toronto, Canada Area</p>
-                        <p>Built applied software projects including an online banking application with J2EE, Hibernate, and Oracle SQL Developer.</p>
+                        <div class="timeline-details" id="timeline-details-5" hidden>
+                            <p>Built applied software projects including an online banking application with J2EE, Hibernate, and Oracle SQL Developer.</p>
+                        </div>
                     </article>
 
                     <article class="timeline-card compact" data-reveal data-mobile-extra>
-                        <div class="timeline-meta">
-                            <span>VMM Corp</span>
-                            <span>Jan 2016 - Dec 2016</span>
+                        <div class="timeline-tab" role="button" tabindex="0" aria-expanded="false" aria-controls="timeline-details-6">
+                            <div class="timeline-meta">
+                                <span>VMM Corp</span>
+                                <span>Jan 2016 - Dec 2016</span>
+                            </div>
+                            <h3>Java Trainee / Android Training</h3>
+                            <p class="timeline-location">Amritsar Area, India</p>
+                            <span class="timeline-tab-hint" aria-hidden="true">Show details</span>
                         </div>
-                        <h3>Java Trainee / Android Training</h3>
-                        <p class="timeline-location">Amritsar Area, India</p>
-                        <p>Built practical Java and Android experience through project delivery and hands-on training.</p>
+                        <div class="timeline-details" id="timeline-details-6" hidden>
+                            <p>Built practical Java and Android experience through project delivery and hands-on training.</p>
+                        </div>
                     </article>
                 </div>
                 <button
@@ -243,53 +279,74 @@
                     <h2>Text-led highlights spanning enterprise systems, academic builds, and client projects.</h2>
                 </div>
                 <div class="work-grid">
-                    <article class="work-card wide" data-reveal>
-                        <p class="work-type">Enterprise impact</p>
-                        <h3>Books and Records platform modernization</h3>
-                        <p>
-                            Supported a platform tied to trillions of dollars in financial workflows, stabilizing reporting through large regulatory expansion,
-                            improving maintainability, and reducing technical debt through architectural cleanup and targeted optimization.
-                        </p>
-                        <ul class="tag-list">
-                            <li>Spring Boot</li>
-                            <li>Clean Architecture</li>
-                            <li>Oracle</li>
-                            <li>Sybase</li>
-                            <li>CI/CD</li>
-                        </ul>
+                    <article class="work-card wide" data-reveal data-work-card>
+                        <div class="work-tab" role="button" tabindex="0" aria-expanded="false" aria-controls="work-details-1">
+                            <p class="work-type">Enterprise impact</p>
+                            <h3>Books and Records platform modernization</h3>
+                            <p class="work-preview">Modernized a high-volume financial platform to improve resilience and release confidence.</p>
+                            <span class="work-tab-hint" aria-hidden="true">Show details</span>
+                        </div>
+                        <div class="work-details" id="work-details-1" hidden>
+                            <p>Delivered stability during regulatory pressure by isolating critical business logic, reducing release friction, and strengthening operational observability.</p>
+                            <ul class="tag-list">
+                                <li>Spring Boot</li>
+                                <li>Clean Architecture</li>
+                                <li>Oracle</li>
+                                <li>Sybase</li>
+                                <li>CI/CD</li>
+                            </ul>
+                        </div>
                     </article>
 
-                    <article class="work-card" data-reveal>
-                        <p class="work-type">Academic project</p>
-                        <h3>Online Banking Application</h3>
-                        <p>Developed an application with administrator and lab-user workflows, test booking, reporting modules, and structured test coverage.</p>
-                        <ul class="tag-list">
-                            <li>J2EE</li>
-                            <li>Hibernate</li>
-                            <li>Oracle SQL Developer</li>
-                        </ul>
+                    <article class="work-card" data-reveal data-work-card>
+                        <div class="work-tab" role="button" tabindex="0" aria-expanded="false" aria-controls="work-details-2">
+                            <p class="work-type">Academic project</p>
+                            <h3>Online Banking Application</h3>
+                            <p class="work-preview">Built role-based banking workflows with reporting and validation-focused backend design.</p>
+                            <span class="work-tab-hint" aria-hidden="true">Show details</span>
+                        </div>
+                        <div class="work-details" id="work-details-2" hidden>
+                            <p>Designed role-aware flows and report generation paths with a strong emphasis on data consistency and maintainable backend structure.</p>
+                            <ul class="tag-list">
+                                <li>J2EE</li>
+                                <li>Hibernate</li>
+                                <li>Oracle SQL Developer</li>
+                            </ul>
+                        </div>
                     </article>
 
-                    <article class="work-card" data-reveal data-mobile-extra>
-                        <p class="work-type">Android + backend</p>
-                        <h3>Messaging Application</h3>
-                        <p>Built backend and database handling for a WhatsApp-style messaging experience with Android clients and API endpoints.</p>
-                        <ul class="tag-list">
-                            <li>Android</li>
-                            <li>J2EE</li>
-                            <li>API design</li>
-                        </ul>
+                    <article class="work-card" data-reveal data-mobile-extra data-work-card>
+                        <div class="work-tab" role="button" tabindex="0" aria-expanded="false" aria-controls="work-details-3">
+                            <p class="work-type">Android + backend</p>
+                            <h3>Messaging Application</h3>
+                            <p class="work-preview">Delivered an API-backed messaging workflow for Android clients and concurrent sessions.</p>
+                            <span class="work-tab-hint" aria-hidden="true">Show details</span>
+                        </div>
+                        <div class="work-details" id="work-details-3" hidden>
+                            <p>Created API-first communication patterns for reliable message flow and scalable backend handling across concurrent mobile sessions.</p>
+                            <ul class="tag-list">
+                                <li>Android</li>
+                                <li>J2EE</li>
+                                <li>API design</li>
+                            </ul>
+                        </div>
                     </article>
 
-                    <article class="work-card" data-reveal data-mobile-extra>
-                        <p class="work-type">Freelance & community</p>
-                        <h3>Local client and NGO projects</h3>
-                        <p>Delivered websites and application work for local businesses and organizations including Dean Singh, Dhingra Poster Gallery, Barkat Welfare Society, and other open source efforts.</p>
-                        <ul class="tag-list">
-                            <li>Web development</li>
-                            <li>Android</li>
-                            <li>Client delivery</li>
-                        </ul>
+                    <article class="work-card" data-reveal data-mobile-extra data-work-card>
+                        <div class="work-tab" role="button" tabindex="0" aria-expanded="false" aria-controls="work-details-4">
+                            <p class="work-type">Freelance & community</p>
+                            <h3>Local client and NGO projects</h3>
+                            <p class="work-preview">Shipped practical solutions for local businesses, NGOs, and community-driven initiatives.</p>
+                            <span class="work-tab-hint" aria-hidden="true">Show details</span>
+                        </div>
+                        <div class="work-details" id="work-details-4" hidden>
+                            <p>Balanced delivery speed with practical maintainability while adapting solutions for varied client goals and technical maturity.</p>
+                            <ul class="tag-list">
+                                <li>Web development</li>
+                                <li>Android</li>
+                                <li>Client delivery</li>
+                            </ul>
+                        </div>
                     </article>
                 </div>
                 <button
@@ -379,15 +436,15 @@
                         Based in Montreal and focused on building resilient systems that combine strong engineering fundamentals with AI-informed evolution.
                     </p>
                     <div class="contact-grid">
-                        <a href="mailto:guneetsingh.honey@gmail.com">
+                        <a href="mailto:guneetsingh.honey@gmail.com" data-contact-action="email" data-preferred-action>
                             <span>Email</span>
                             <strong>guneetsingh.honey@gmail.com</strong>
                         </a>
-                        <a href="tel:+15148874747">
+                        <a href="tel:+15148874747" data-contact-action="phone">
                             <span>Phone</span>
                             <strong>+1 514 887 4747</strong>
                         </a>
-                        <a href="https://www.linkedin.com/in/guneet-singh-2381b878/" target="_blank" rel="noreferrer">
+                        <a href="https://www.linkedin.com/in/guneet-singh-2381b878/" target="_blank" rel="noreferrer" data-contact-action="linkedin">
                             <span>LinkedIn</span>
                             <strong>View profile</strong>
                         </a>
@@ -400,7 +457,8 @@
             </section>
         </main>
     </div>
+    <p class="interaction-status" id="interactionStatus" aria-live="polite" aria-atomic="true"></p>
 
-    <script src="scripts/main.js"></script>
+    <script src="scripts/main.js?v=2"></script>
 </body>
 </html>
